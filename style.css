@@ -1468,8 +1468,38 @@ html[data-theme="light"] .tree-node.active {
 .vscode-split-panels {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 4px 1fr;
   min-height: 0;
+  position: relative;
+}
+
+/* VS Code Panel Resizer */
+.vscode-resizer {
+  width: 4px;
+  height: 100%;
+  background-color: var(--vscode-border);
+  cursor: col-resize;
+  position: relative;
+  z-index: 10;
+  transition: background-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+/* Invisible wider hit-box for easy resizing grab area */
+.vscode-resizer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  right: -4px;
+  bottom: 0;
+  cursor: col-resize;
+  z-index: 11;
+}
+
+.vscode-resizer:hover,
+.vscode-resizer.resizing {
+  background-color: var(--primary-color);
 }
 
 .vscode-panel-pane {
@@ -1480,7 +1510,6 @@ html[data-theme="light"] .tree-node.active {
 }
 
 .vscode-editor-pane {
-  border-right: 1px solid var(--vscode-border);
   position: relative;
 }
 
@@ -1736,6 +1765,10 @@ html[data-theme="light"] .tree-node.active {
   /* Main area splits stack or hide editor/preview */
   .vscode-split-panels {
     grid-template-columns: 1fr;
+  }
+
+  .vscode-resizer {
+    display: none !important;
   }
 
   .vscode-preview-pane {

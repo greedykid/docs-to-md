@@ -1491,5 +1491,63 @@ document.addEventListener('DOMContentLoaded', () => {
   vscodeMobileEditorBtn.addEventListener('click', () => {
     vscodeSplitPanels.classList.remove('preview-active');
   });
+
+  // --- Resizable Panels Divider Logic (Splitter) ---
+  const vscodeResizer = document.getElementById('vscodeResizer');
+  let isResizing = false;
+
+  vscodeResizer.addEventListener('mousedown', (e) => {
+    isResizing = true;
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+    vscodeResizer.classList.add('resizing');
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isResizing) return;
+
+    const containerRect = vscodeSplitPanels.getBoundingClientRect();
+    const relativeX = e.clientX - containerRect.left;
+    let percentage = (relativeX / containerRect.width) * 100;
+
+    // Constrain split between 15% and 85%
+    percentage = Math.max(15, Math.min(85, percentage));
+    vscodeSplitPanels.style.gridTemplateColumns = `${percentage}% 4px 1fr`;
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (isResizing) {
+      isResizing = false;
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+      vscodeResizer.classList.remove('resizing');
+    }
+  });
+
+  // Touch Events support
+  vscodeResizer.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 0) {
+      isResizing = true;
+      vscodeResizer.classList.add('resizing');
+    }
+  });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!isResizing || e.touches.length === 0) return;
+
+    const containerRect = vscodeSplitPanels.getBoundingClientRect();
+    const relativeX = e.touches[0].clientX - containerRect.left;
+    let percentage = (relativeX / containerRect.width) * 100;
+
+    percentage = Math.max(15, Math.min(85, percentage));
+    vscodeSplitPanels.style.gridTemplateColumns = `${percentage}% 4px 1fr`;
+  });
+
+  document.addEventListener('touchend', () => {
+    if (isResizing) {
+      isResizing = false;
+      vscodeResizer.classList.remove('resizing');
+    }
+  });
 });
 
