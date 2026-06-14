@@ -11,6 +11,13 @@ Aplikasi ini menggunakan teknologi web modern (HTML5, CSS3, Vanilla JS) dan berj
 - **Drag & Drop File:** Seret file `.docx` Anda langsung ke area konverter atau jelajahi file lokal.
 - **Client-Side Parsing:** Konversi cepat menggunakan library Javascript di browser lokal (tidak ada data terkirim ke server).
 - **Split Screen / Tabbed View:** Lihat hasil Markdown mentah dan hasil visual rendernya secara berdampingan (di desktop) atau bergantian (di mobile).
+- **Pengekstrakan Gambar & Panel Aset:** Gambar yang tertanam dalam file `.docx` otomatis diekstrak dan ditampilkan di panel kiri galeri aset. Pengguna dapat mengunduhnya satu per satu atau secara massal (*Download All Images*).
+- **Ekspor ZIP Bundle (MD + Gambar):** Mendownload hasil konversi dalam satu file arsip `.zip` yang berisi file `.md` bersih serta folder `media/` yang menampung seluruh gambar terkait. Path gambar di dalam file `.md` otomatis disesuaikan menjadi path relatif (misal: `! [alt](media/image-1.png)`).
+- **Workspace Lanjutan ala VS Code:**
+  - Tampilan editor penuh mirip VS Code untuk mengunggah folder lokal berisi dokumen Markdown dan gambar (seperti hasil ekstrak file ZIP).
+  - Dilengkapi *activity bar*, sidebar explorer folder yang dapat diciutkan (*collapsible file tree*), tab dokumen aktif, dan split editor-preview.
+  - **Resolusi Gambar Relatif Otomatis:** Menghubungkan path gambar relatif seperti `media/image.png` ke Blob URL memori browser lokal secara dinamis agar gambar tampil langsung di pratinjau workspace.
+  - **Dukungan Mobile Penuh:** Pada layar ponsel, sidebar explorer otomatis menutup saat file dipilih, dan tersedia tombol toggle cepat **Preview** & **Code** di header panel.
 - **Customization Settings:**
   - Aktifkan/nonaktifkan konversi tabel (GFM Tables).
   - Dukungan teks coret (~~Strikethrough~~).
@@ -19,8 +26,10 @@ Aplikasi ini menggunakan teknologi web modern (HTML5, CSS3, Vanilla JS) dan berj
   - Pilih karakter pembatas garis horizontal (`---`, `***`, `___`).
 - **Aksi Cepat:**
   - Tombol **Copy** satu klik untuk menyalin Markdown ke clipboard.
-  - Tombol **Download** untuk mengunduh dokumen berupa file `.md`.
-- **Tema Gelap & Terang:** Tema gelap futuristik bawaan dengan opsi perpindahan ke tema terang yang elegan.
+  - Tombol **Download MD** untuk mengunduh dokumen berupa file `.md` mandiri.
+  - Tombol **Download ZIP** untuk mengunduh bundel `.md` + aset media.
+- **Tema Gelap & Terang:** Tema gelap futuristik bawaan dengan opsi perpindahan ke tema terang yang elegan, terintegrasi penuh ke semua area termasuk VS Code Workspace.
+
 
 ---
 
