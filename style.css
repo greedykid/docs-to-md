@@ -1173,6 +1173,10 @@ html[data-theme="light"] .moon-icon { display: block; }
   height: 22px;
 }
 
+.vscode-title-actions button svg {
+  margin-right: 5px;
+}
+
 /* Main Area */
 .vscode-main {
   display: flex;
@@ -1697,11 +1701,17 @@ html[data-theme="light"] .tree-node.active {
     display: none; /* Icon only */
   }
 
-  .vscode-title-actions button {
+  .vscode-title-actions button,
+  .vscode-title-actions .btn-sm {
     padding: 4px;
     width: 28px;
     height: 28px;
     justify-content: center;
+    align-items: center;
+  }
+
+  .vscode-title-actions button svg {
+    margin-right: 0;
   }
 
   /* Sidebar Drawer styling for mobile overlay */
