@@ -16,6 +16,7 @@ Because it runs entirely on the client side without any backend server, your doc
 - **Advanced VS Code-Style Workspace:**
   - An interactive environment mimicking a VS Code IDE, allowing you to load local folders containing Markdown files and their relative image folders (such as the unzipped output of the converter).
   - Features an activity bar, collapsible file explorer tree, tabbed document navigation, text editor with line numbers, and live Markdown rendering.
+  - **Draggable Gutter Resizer (Splitter):** Drag the vertical border between the editor and preview panes freely to scale your layout. It features a wider, invisible hover grab target for ease of use, constrains layout ratios between 15% and 85% to keep panes visible, supports touch gestures on tablets, and hides completely on mobile viewports.
   - **Automatic Relative Path Resolution:** Dynamically maps relative image paths like `media/image.png` to local browser Blob URLs in real-time, allowing images to render instantly inside the preview panel.
   - **Full Mobile Responsiveness:** On mobile screens, the file tree sidebar collapses automatically upon file selection, and quick-toggle action buttons (**Preview** and **Code**) are displayed in the header.
 - **Customization Settings:**
