@@ -1,81 +1,81 @@
 # DocxToMarkdown - Native Web Converter
 
-**DocxToMarkdown** adalah aplikasi berbasis web *pure client-side* yang memungkinkan Anda mengonversi dokumen Microsoft Word (`.docx`) menjadi format Markdown (`.md`) secara instan dan 100% aman di dalam browser Anda.
+**DocxToMarkdown** is a professional, pure client-side web application that allows you to instantly and securely convert Microsoft Word (`.docx`) documents to Markdown (`.md`) format directly inside your browser.
 
-Aplikasi ini menggunakan teknologi web modern (HTML5, CSS3, Vanilla JS) dan berjalan sepenuhnya tanpa backend server, sehingga menjamin kerahasiaan dokumen Anda.
+Because it runs entirely on the client side without any backend server, your document content remains completely private and secure.
 
 ---
 
-## Fitur Utama
+## Key Features
 
-- **Drag & Drop File:** Seret file `.docx` Anda langsung ke area konverter atau jelajahi file lokal.
-- **Client-Side Parsing:** Konversi cepat menggunakan library Javascript di browser lokal (tidak ada data terkirim ke server).
-- **Split Screen / Tabbed View:** Lihat hasil Markdown mentah dan hasil visual rendernya secara berdampingan (di desktop) atau bergantian (di mobile).
-- **Pengekstrakan Gambar & Panel Aset:** Gambar yang tertanam dalam file `.docx` otomatis diekstrak dan ditampilkan di panel kiri galeri aset. Pengguna dapat mengunduhnya satu per satu atau secara massal (*Download All Images*).
-- **Ekspor ZIP Bundle (MD + Gambar):** Mendownload hasil konversi dalam satu file arsip `.zip` yang berisi file `.md` bersih serta folder `media/` yang menampung seluruh gambar terkait. Path gambar di dalam file `.md` otomatis disesuaikan menjadi path relatif (misal: `! [alt](media/image-1.png)`).
-- **Workspace Lanjutan ala VS Code:**
-  - Tampilan editor penuh mirip VS Code untuk mengunggah folder lokal berisi dokumen Markdown dan gambar (seperti hasil ekstrak file ZIP).
-  - Dilengkapi *activity bar*, sidebar explorer folder yang dapat diciutkan (*collapsible file tree*), tab dokumen aktif, dan split editor-preview.
-  - **Resolusi Gambar Relatif Otomatis:** Menghubungkan path gambar relatif seperti `media/image.png` ke Blob URL memori browser lokal secara dinamis agar gambar tampil langsung di pratinjau workspace.
-  - **Dukungan Mobile Penuh:** Pada layar ponsel, sidebar explorer otomatis menutup saat file dipilih, dan tersedia tombol toggle cepat **Preview** & **Code** di header panel.
+- **Drag & Drop Upload:** Drag your `.docx` file directly onto the converter dropzone or browse your local file system.
+- **Client-Side Parsing:** Extremely fast document conversion powered by local JavaScript libraries inside your browser memory (no data is sent to external servers).
+- **Split Screen / Tabbed View:** View raw Markdown code side-by-side with its live visual preview (on desktop) or toggle between them (on mobile viewports).
+- **Image Extraction & Asset Panel:** Embedded images inside your Word document are automatically extracted and presented in a thumbnail gallery in the left panel. Download them individually or all at once using **Download All Images**.
+- **ZIP Bundle Export:** Export your conversion as a unified `.zip` file containing a clean `.md` document and a `media/` folder holding all extracted assets. The image path references within the Markdown are dynamically rewritten as clean, relative paths (e.g. `![altText](media/image-1.png)`).
+- **Advanced VS Code-Style Workspace:**
+  - An interactive environment mimicking a VS Code IDE, allowing you to load local folders containing Markdown files and their relative image folders (such as the unzipped output of the converter).
+  - Features an activity bar, collapsible file explorer tree, tabbed document navigation, text editor with line numbers, and live Markdown rendering.
+  - **Automatic Relative Path Resolution:** Dynamically maps relative image paths like `media/image.png` to local browser Blob URLs in real-time, allowing images to render instantly inside the preview panel.
+  - **Full Mobile Responsiveness:** On mobile screens, the file tree sidebar collapses automatically upon file selection, and quick-toggle action buttons (**Preview** and **Code**) are displayed in the header.
 - **Customization Settings:**
-  - Aktifkan/nonaktifkan konversi tabel (GFM Tables).
-  - Dukungan teks coret (~~Strikethrough~~).
-  - Offset Heading Level (menggeser tingkat heading secara dinamis, misal H1 menjadi H2).
-  - Atur penanganan gambar (konversi ke Base64 inline, penanda placeholder, atau diabaikan).
-  - Pilih karakter pembatas garis horizontal (`---`, `***`, `___`).
-- **Aksi Cepat:**
-  - Tombol **Copy** satu klik untuk menyalin Markdown ke clipboard.
-  - Tombol **Download MD** untuk mengunduh dokumen berupa file `.md` mandiri.
-  - Tombol **Download ZIP** untuk mengunduh bundel `.md` + aset media.
-- **Tema Gelap & Terang:** Tema gelap futuristik bawaan dengan opsi perpindahan ke tema terang yang elegan, terintegrasi penuh ke semua area termasuk VS Code Workspace.
-
-
----
-
-## Kebutuhan Sistem
-
-- **Node.js** (versi 16 atau lebih baru direkomendasikan)
-- **npm** (biasanya dibundel bersama Node.js)
+  - Toggle document table parsing (GFM Tables).
+  - Enable double-tilde strikethrough support (`~~strikethrough~~`).
+  - Configure heading level offset (e.g. shift H1 to H2 dynamically).
+  - Set image conversion behaviors (Inline Base64, Insert Placeholders, or Ignore Images).
+  - Select horizontal rule markers (`---`, `***`, `___`).
+- **Quick Action Utilities:**
+  - **Copy:** Copy generated Markdown code to the clipboard in a single click.
+  - **Download MD:** Download your document as a standalone `.md` file.
+  - **Download ZIP:** Export your document along with all media assets in a zip file.
+- **Aesthetic Dark & Light Themes:** Includes a premium futuristic dark theme by default, with an elegant light theme toggle that applies across all components, including the VS Code Workspace.
 
 ---
 
-## Petunjuk Instalasi & Konfigurasi
+## System Requirements
 
-Ikuti langkah-langkah di bawah untuk menjalankan aplikasi di lingkungan pengembangan lokal Anda:
+- **Node.js** (version 16 or newer recommended)
+- **npm** (usually bundled together with Node.js)
 
-1. **Instal Dependensi:**
-   Buka terminal di dalam direktori proyek ini dan jalankan perintah berikut untuk menginstal `vite` (dev server):
+---
+
+## Installation & Local Setup
+
+Follow these steps to run the application locally on your development server:
+
+1. **Install Dependencies:**
+   Open a terminal in the project root directory and install `vite` (the local development server):
    ```bash
    npm install
    ```
 
-2. **Jalankan Development Server:**
-   Mulai server pengembangan lokal dengan menjalankan:
+2. **Start the Development Server:**
+   Launch the local server using:
    ```bash
    npm run dev
    ```
 
-3. **Buka Aplikasi:**
-   Vite akan menjalankan server lokal (biasanya pada alamat `http://localhost:5173`). Buka URL yang tertera pada terminal Anda di browser (Google Chrome, Firefox, Safari, atau Edge).
+3. **Open the Application:**
+   Vite will host the web server (usually at `http://localhost:5173`). Open the link in your preferred modern web browser (Google Chrome, Firefox, Safari, or Microsoft Edge).
 
 ---
 
-## Struktur Direktori
+## Directory Structure
 
 ```text
 docs-to-md/
 ├── PRD.md               # Product Requirements Document
-├── README.md            # Dokumentasi panduan instalasi (File ini)
-├── index.html           # Struktur HTML utama
-├── style.css            # Custom CSS untuk tema gelap/terang & tata letak
-├── app.js               # Logic parser dan interaksi UI
-└── package.json         # Konfigurasi dependensi npm (Vite)
+├── README.md            # Installation and setup documentation (This file)
+├── index.html           # Main HTML structure and markup
+├── style.css            # Custom stylesheet for dark/light themes and responsive layout
+├── app.js               # Main application logic, parser rules, and UI interactions
+└── package.json         # Dependency configuration and scripts (Vite)
 ```
 
 ---
 
-## Keamanan & Privasi
+## Security & Privacy Guarantee
 
-Aplikasi ini **tidak mengirimkan data apapun ke server luar**. 
-Seluruh pemrosesan dokumen `.docx` menjadi HTML menggunakan `mammoth.js`, konversi HTML ke Markdown menggunakan `turndown.js`, dan visualisasi pratinjau menggunakan `marked.js` dilakukan sepenuhnya di dalam memori web browser lokal Anda. Dokumen Anda aman 100%.
+This application **does not collect, store, or transmit any of your files or personal data**.
+
+All operations—parsing `.docx` structure with `mammoth.js`, converting markup with `turndown.js`, compiling folders with `jszip.js`, and rendering visuals with `marked.js`—happen completely inside your local browser memory. Your documents are 100% secure.
